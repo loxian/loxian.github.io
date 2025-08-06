@@ -27,7 +27,7 @@
             <h1>BIT学科回顾</h1>
             <div class="current-topic">
                 <span>当前主题: </span>
-                <span id="current-topic">请先选择主题</span>
+                <span id="current-topic">请从左侧选择主题</span>
                 <button id="close-review" class="close-btn">
                     <i class="fas fa-times"></i>
                 </button>
@@ -35,37 +35,29 @@
         </div>
         
         <div class="review-content">
-            <!-- 左侧菜单 -->
+            <!-- 左侧菜单 - 简化后 -->
             <div class="review-menu">
-                <div class="menu-section">
-                    <h3>基础理论</h3>
-                    <div class="menu-items">
-                        <a href="#" class="menu-item" data-topic="kw-formula">KW计算公式</a>
-                        <a href="#" class="menu-item" data-topic="quant-model">目标量化模型</a>
-                        <a href="#" class="menu-item" data-topic="markov-chain">马尔科夫链应用</a>
-                    </div>
-                </div>
-                
-                <div class="divider"></div>
-                
-                <div class="menu-section">
-                    <h3>战术应用</h3>
-                    <div class="menu-items">
-                        <a href="#" class="menu-item" data-topic="tactical-maps">战术地图绘制</a>
-                        <a href="#" class="menu-item" data-topic="bridge-analysis">桥梁分析技术</a>
-                        <a href="#" class="menu-item" data-topic="ai-prediction">AI预测系统</a>
-                    </div>
-                </div>
-                
-                <div class="divider"></div>
-                
-                <div class="menu-section">
-                    <h3>高级算法</h3>
-                    <div class="menu-items">
-                        <a href="#" class="menu-item" data-topic="nash-markov">什纳-马尔科夫模型</a>
-                        <a href="#" class="menu-item" data-topic="winrate-opt">胜率优化算法</a>
-                        <a href="#" class="menu-item" data-topic="cost-reduction">成本降低策略</a>
-                    </div>
+                <div class="flat-menu-items">
+                    <a href="#" class="flat-menu-item" data-topic="kw-formula">
+                        <i class="fas fa-calculator"></i>
+                        KW计算公式
+                    </a>
+                    <a href="#" class="flat-menu-item" data-topic="quant-model">
+                        <i class="fas fa-bullseye"></i>
+                        目标量化模型
+                    </a>
+                    <a href="#" class="flat-menu-item" data-topic="markov-chain">
+                        <i class="fas fa-link"></i>
+                        马尔科夫链应用
+                    </a>
+                    <a href="#" class="flat-menu-item" data-topic="tactical-maps">
+                        <i class="fas fa-map"></i>
+                        战术地图绘制
+                    </a
+                    <a href="#" class="flat-menu-item" data-topic="nash-markov">
+                        <i class="fas fa-dice"></i>
+                        什纳-马尔科夫模型
+                    </a
                 </div>
             </div>
             
@@ -73,7 +65,7 @@
             <div class="content-area">
                 <div class="content-placeholder">
                     <i class="fas fa-book-reader"></i>
-                    <p>请先选择主题</p>
+                    <p>请从左侧菜单中选择主题</p>
                 </div>
                 <div class="topic-content" id="topic-content"></div>
             </div>
