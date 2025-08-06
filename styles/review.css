@@ -14,7 +14,7 @@
     padding: 20px 15px;
     text-decoration: none;
     color: var(--text);
-    background: white;
+    background: blue;
     border-radius: 12px;
     transition: var(--transition);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
