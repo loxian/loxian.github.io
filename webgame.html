@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 数字合并游戏</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>返回首页</span>
+    </a>
+    
+    <div class="game-container">
+        <div class="header">
+            <h1>2048</h1>
+            <div class="scores">
+                <div class="score-box">
+                    <div class="score-title">分数</div>
+                    <div class="score-value" id="score">0</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-title">最高分</div>
+                    <div class="score-value" id="best-score">0</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-board">
+            <div class="grid-container" id="grid-container"></div>
+        </div>
+        
+        <div class="controls">
+            <div class="game-message" id="message"></div>
+            <div class="buttons">
+                <button class="reset" id="reset-btn">新游戏</button>
+                <button class="undo" id="undo-btn">撤销</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <p>使用键盘方向键 <span class="key">←</span> <span class="key">→</span> <span class="key">↑</span> <span class="key">↓</span> 移动数字方块</p>
+        <p>当两个相同数字的方块碰撞时，会合并为一个更大的数字方块</p>
+        <p>努力合成一个2048的方块吧！</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
