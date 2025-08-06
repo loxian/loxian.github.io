@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contentPlaceholder = document.querySelector('.content-placeholder');
     
     // 加载JSON数据
-    fetch('data/review-content.json')
+    fetch('../data/review-content.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('网络响应不正常');
