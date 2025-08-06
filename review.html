@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT堵桥学 - 学科回顾</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/review.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">BIT</div>
+                    <div class="logo-text"><span>堵桥学</span></div>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 学科回顾主内容 -->
+    <main class="container review-container">
+        <div class="review-header">
+            <h1>BIT学科回顾</h1>
+            <div class="current-topic">
+                <span>当前主题: </span>
+                <span id="current-topic">请先选择主题</span>
+                <button id="close-review" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="review-content">
+            <!-- 左侧菜单 -->
+            <div class="review-menu">
+                <div class="menu-section">
+                    <h3>基础理论</h3>
+                    <div class="menu-items">
+                        <a href="#" class="menu-item" data-topic="kw-formula">KW计算公式</a>
+                        <a href="#" class="menu-item" data-topic="quant-model">目标量化模型</a>
+                        <a href="#" class="menu-item" data-topic="markov-chain">马尔科夫链应用</a>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="menu-section">
+                    <h3>战术应用</h3>
+                    <div class="menu-items">
+                        <a href="#" class="menu-item" data-topic="tactical-maps">战术地图绘制</a>
+                        <a href="#" class="menu-item" data-topic="bridge-analysis">桥梁分析技术</a>
+                        <a href="#" class="menu-item" data-topic="ai-prediction">AI预测系统</a>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="menu-section">
+                    <h3>高级算法</h3>
+                    <div class="menu-items">
+                        <a href="#" class="menu-item" data-topic="nash-markov">什纳-马尔科夫模型</a>
+                        <a href="#" class="menu-item" data-topic="winrate-opt">胜率优化算法</a>
+                        <a href="#" class="menu-item" data-topic="cost-reduction">成本降低策略</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧内容区 -->
+            <div class="content-area">
+                <div class="content-placeholder">
+                    <i class="fas fa-book-reader"></i>
+                    <p>请先选择主题</p>
+                </div>
+                <div class="topic-content" id="topic-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; BIT研究中心 | 作者:三角洲堵桥学教父</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/review.js"></script>
+</body>
+</html>
