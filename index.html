@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT堵桥学 - 官方网站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 基础样式 */
+        :root {
+            --primary: #0a2463;
+            --secondary: #1e3b8a;
+            --accent: #4cc9f0;
+            --light: #d6e4f0;
+            --dark: #050a30;
+            --text: #333;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8faff 0%, #e6f0fa 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 26px;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        /* 主内容区 */
+        main {
+            padding: 50px 0;
+        }
+        
+        .hero-content {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 45px auto 30px;
+            color: var(--secondary);
+            line-height: 1.8;
+        }
+        
+        .bridge-icon-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .bridge-icon {
+            font-size: 80px;
+            color: var(--primary);
+        }
+        
+        /* 核心价值 */
+        .core-values {
+            margin: 70px auto;
+            max-width: 1000px;
+        }
+        
+        .values-title {
+            text-align: center;
+            font-size: 2.0rem;
+            margin-bottom: 50px;
+            color: var(--secondary);
+        }
+        
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        
+        .value-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .value-icon {
+            font-size: 50px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .value-description {
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 25px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        .footer-content {
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animated {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .bridge-icon {
+                font-size: 60px;
+            }
+            
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <div class="logo-icon">BIT</div>
+                    <div class="logo-text"><span>堵桥学</span></div>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="container">
+        <!-- 简介区 -->
+        <section class="hero-content">
+            <h1 class="hero-title animated">堵桥学 - BIT</h1>
+            <div class="bridge-icon-container animated delay-1">
+                <i class="fas fa-bridge bridge-icon"></i>
+            </div>
+            <p class="hero-description animated delay-2">
+                堵桥学是一门数学,计算机科学(CS),军事学和地理学的交叉学科，旨在将胜率概率期望函数提高至最大值与最优决策选择。
+                <br><br>
+                通过战术地图,计算机程序和复杂数学公式，BIT致力于保证在不败于敌手的情况下，提高自我阵营的期望胜率概率，减少亏本成本。
+            </p>
+        </section>
+        
+        <!-- 核心价值 -->
+        <section class="core-values">
+            <h2 class="values-title animated delay-2">核心价值与研究方向</h2>
+            <div class="value-grid">
+                <div class="value-card animated delay-1">
+                    <i class="fas fa-chart-line value-icon"></i>
+                    <h3 class="value-title">胜率流优化</h3>
+                    <p class="value-description">
+                        研究在不同情况下，当前最佳期望调度选择，
+                        基于复杂运算,多个量化模型，做出最优决策。
+                    </p>
+                </div>
+                
+                <div class="value-card animated delay-2">
+                    <i class="fas fa-hard-hat value-icon"></i>
+                    <h3 class="value-title">战术地图绘制</h3>
+                    <p class="value-description">
+                        通过多个ANN分析最佳区域，
+                        找出最有利的位置，为成功拥有了坚实基础。
+                    </p>
+                </div>
+                
+                <div class="value-card animated delay-3">
+                    <i class="fas fa-cogs value-icon"></i>
+                    <h3 class="value-title">马尔科夫链构建</h3>
+                    <p class="value-description">
+                        通过什纳均衡和马尔科夫链的共同结合，
+                        通过什纳-马尔科夫模型，做出当前情况下最优的决策选择。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy;  BIT研究中心 | 作者:三角洲堵桥学教父</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的动画触发机制
+        document.addEventListener('DOMContentLoaded', function() {
+            // 所有需要动画的元素
+            const animatedElements = document.querySelectorAll('.animated');
+            
+            // 应用动画延迟
+            animatedElements.forEach(el => {
+                const delay = el.classList.contains('delay-1') ? 0.1 : 
+                            el.classList.contains('delay-2') ? 0.2 : 
+                            el.classList.contains('delay-3') ? 0.3 : 0;
+                
+                el.style.animationDelay = delay + 's';
+            });
+        });
+    </script>
+</body>
+</html>
