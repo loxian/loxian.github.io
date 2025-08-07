@@ -1,0 +1,321 @@
+/* 阅览室样式 */
+.sebook-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 30px 20px;
+    margin-top: 20px;
+}
+
+/* 树状图区域 */
+.literature-tree-container {
+    flex: 0 0 300px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.tree-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tree-title {
+    font-size: 1.7rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.tree-search {
+    display: flex;
+    gap: 5px;
+}
+
+.tree-search input {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: var(--text);
+    font-size: 0.95rem;
+    width: 170px;
+    transition: var(--transition);
+}
+
+.tree-search input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+    width: 200px;
+}
+
+.tree-search button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tree-search button:hover {
+    background: rgba(74, 109, 229, 0.3);
+    border-color: var(--accent);
+}
+
+/* 文献树样式 */
+.literature-tree {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+}
+
+.literature-tree::-webkit-scrollbar {
+    width: 8px;
+}
+
+.literature-tree::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+.literature-tree::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+.tree-root {
+    font-weight: bold;
+    color: var(--accent);
+    padding: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 10px;
+    background: rgba(74, 109, 229, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    border-left: 4px solid var(--accent);
+}
+
+.tree-root:hover {
+    background: rgba(74, 109, 229, 0.25);
+}
+
+.tree-root i {
+    font-size: 1.3rem;
+}
+
+.tree-children {
+    margin-left: 25px;
+}
+
+.tree-child {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tree-child:hover {
+    background: rgba(74, 109, 229, 0.15);
+}
+
+.tree-child.active {
+    background: rgba(74, 109, 229, 0.3);
+    box-shadow: 0 0 0 1px var(--accent);
+}
+
+.tree-child i {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+/* 内容查看器 */
+.content-viewer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: 85vh;
+}
+
+.viewer-header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.viewer-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.viewer-header h3 {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.viewer-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.viewer-controls button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: var(--accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.viewer-controls button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+}
+
+/* 文献内容 */
+.document-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    line-height: 1.8;
+    color: var(--text);
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+}
+
+.document-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.document-content::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+.document-content::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+.document-content h4 {
+    color: var(--accent);
+    margin: 20px 0 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.document-content h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+.document-content p {
+    margin-bottom: 15px;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.welcome-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.welcome-message p {
+    max-width: 350px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* 响应式设计 */
+@media (max-width: 900px) {
+    .sebook-container {
+        flex-direction: column;
+    }
+    
+    .literature-tree-container {
+        flex: 0 0 auto;
+        max-height: 300px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tree-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .tree-title {
+        font-size: 1.5rem;
+    }
+    
+    .tree-search {
+        width: 100%;
+    }
+    
+    .tree-search input {
+        width: 100%;
+    }
+}
