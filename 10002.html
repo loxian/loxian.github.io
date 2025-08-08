@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT堵桥学 - 击杀权重计算公式</title>
+    <!-- 引入KaTeX库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css"> <!-- 您已有的CSS -->
+</head>
+<body>
+    <a href="sebook.html" class="nav-button">
+        <i class="fas fa-arrow-left"></i>
+        返回主界面
+    </a>
+    
+    <div class="container">
+        <h1>击杀权重计算公式</h1>
+        
+        <div class="formula-section">
+            <h2>核心计算公式</h2>
+            <div class="katex-formula">
+                \[ \text{KW} = (X + Y) \times \left[\gamma(Z) + \Omega(A)\right] \]
+            </div>
+            
+            <h3>用途</h3>
+            <div class="katex-formula">
+                定义最优击杀函数 \( f(\text{KW}) \) 以 \( \max\{\mathbb{E}[P(V)]\} \)
+            </div>
+        </div>
+        
+        <div class="attribute-section">
+            <h2>属性表</h2>
+            <div class="katex-formula">
+                \[ \begin{array}{c}
+                    X = \text{敌方头盔等级} \\
+                    Y = \text{敌方护甲等级} \\
+                    \text{其中, } \\
+                    B \in \{1,2,3,4,5,6\} \\
+                    X = B_0 \\
+                    Y = B_1
+                \end{array} \]
+            </div>
+        </div>
+        
+        <div class="factors-section">
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>职业因子 \( \gamma(Z) \)</h3>
+                    <div class="katex-formula">
+                        \[
+                        \begin{array}{c|c}
+                        \text{职业} & \gamma(Z) \\
+                        \hline
+                        \text{医疗兵} & 1.5 \\
+                        \text{工程兵} & 1.2 \\
+                        \text{侦察兵} & 1.0 \\
+                        \text{突击兵} & 0.8 \\
+                        \end{array}
+                        \]
+                    </div>
+                </div>
+                
+                <div class="grid-item">
+                    <h3>武器因子 \( \Omega(A) \)</h3>
+                    <div class="katex-formula">
+                        \[
+                        \begin{array}{c|c}
+                        \text{武器类型} & \Omega(A) \\
+                        \hline
+                        \text{狙击枪/射手步枪} & 1.3 \\
+                        \text{机枪} & 1.2 \\
+                        \text{步枪} & 1.0 \\
+                        \text{冲锋枪/弓} & 0.5 \\
+                        \text{散弹枪} & 0.3 \\
+                        \end{array}
+                        \]
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-section">
+            <h2>行动指南（基于K值）</h2>
+            <div class="katex-formula">
+                \[
+                \begin{array}{c}
+                    K = \text{KW} \\
+                    \\
+                    K > 20 \quad \text{--- 立即击杀} \\
+                    K \in \{12,13,14,15,16,17,18,19,20\} \quad \text{--- 优先处理} \\
+                    K \in \{8,9,10,11\} \quad \text{--- 转移目标} \\
+                    K < 8 \quad \text{--- 最后击杀}
+                \end{array}
+                \]
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "\\(", right: "\\)", display: false}
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+</body>
+</html>
